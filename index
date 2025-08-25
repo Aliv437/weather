@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>NWS Quick</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b3d91">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>NWS Quick</h1>
+    <nav>
+      <button data-view="home" class="active">Home</button>
+      <button data-view="forecast">Forecast</button>
+      <button data-view="hourly">Hourly</button>
+      <button data-view="alerts">Alerts</button>
+      <button data-view="favorites">Favorites</button>
+    </nav>
+  </header>
+
+  <main id="app"></main>
+  <footer id="meta"></footer>
+
+  <!-- Optional proxy for adding headers server-side -->
+  <script>window.NWS_PROXY=''</script>
+  <script src="app.js" type="module"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>
